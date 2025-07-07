@@ -46,7 +46,9 @@ export default function ClientPage() {
   const experienceData = [
     {
       title: "MySkill",
-      type: "Work",
+      logo: "/download (2).png",
+      bgColor: "bg-white",
+      type: "Project",
       role: "Frontend Developer",
       period: "January 2023 - Present",
       delay: "0.1s",
@@ -54,7 +56,7 @@ export default function ClientPage() {
         "Developing and maintaining web applications using React and Next.js. Implementing responsive designs and ensuring cross-browser compatibility. Collaborating with the design team to create intuitive user interfaces. Optimizing applications for maximum speed and scalability.",
     },
     {
-      logo: "F",
+      logo: "/placeholder-logo.png",
       bgColor: "bg-green-600",
       title: "Freelance",
       type: "Work",
@@ -66,7 +68,9 @@ export default function ClientPage() {
     },
     {
       title: "Quondam",
-      type: "Work",
+      logo: "/quondam-logo.png",
+      bgColor: "bg-white",
+      type: "Project",
       role: "Web Development Instructor",
       period: "March 2021 - May 2022",
       delay: "0.3s",
@@ -75,6 +79,9 @@ export default function ClientPage() {
     },
     {
       title: "Rumah Kinclong",
+      logo: "/Tangkapan Layar 2025-06-13 pukul 16.43.20.png",
+      logoClass: "-translate-x-4", // posisi yang sebelumnya lebih center
+      bgColor: "bg-white",
       type: "Project",
       role: "Frontend Developer",
       period: "October 2020 - February 2021",
@@ -84,12 +91,25 @@ export default function ClientPage() {
     },
     {
       title: "Rumbeldirgantara",
+      logo: "/Cropped_Image.png",
+      bgColor: "bg-white",
       type: "Work",
-      role: "Web Developer",
+      role: "Fullstack Developer",
       period: "August 2022 - Present",
       delay: "0.1s",
       description:
         "Developed and maintained a tutoring website for elementary school students focusing on simplicity, responsiveness, and easy navigation for parents. Visit their website at rumbeldirgantara.com.",
+    },
+    {
+      title: "PT. Cakra Bahana Sakti",
+      logo: "/logo-cbs.png",
+      bgColor: "bg-white",
+      type: "Work",
+      role: "Fullstack Developer",
+      period: "2025",
+      delay: "0.5s",
+      description:
+        "Developed and maintained the company profile website for PT. Cakra Bahana Sakti, covering landing page, product catalog, services, contact, and company information. Responsible for both frontend and backend implementation, ensuring a modern, responsive design and optimal SEO. Collaborated closely with stakeholders to deliver scalable and maintainable solutions.",
     },
   ]
 
@@ -132,6 +152,17 @@ export default function ClientPage() {
       tags: ["Vue.js", "Firebase", "Vuex"],
       link: "https://rumbeldirgantara.com",
       github: "https://github.com/arapcihuy/jarialjabar",
+      category: "web",
+    },
+    {
+      title: "PT. Cakra Bahana Sakti Website",
+      description:
+        "Company profile website for PT. Cakra Bahana Sakti, a leading provider of substation accessories and industrial engineering solutions. Features include landing page, product catalog, services, contact, and company information. Designed for modern, responsive, and user-friendly experience.",
+      video: "/videos/cbs-demo.mp4", // Pastikan nama file sesuai dengan file video Anda
+      isVideo: true,
+      tags: ["Next.js", "React", "Tailwind CSS", "Company Profile"],
+      link: "https://www.cakrabahanasakti.com/",
+      github: "#", // Ganti jika ada repo publik
       category: "web",
     },
   ]
@@ -350,7 +381,7 @@ export default function ClientPage() {
                     />
                   ) : (
                     <Image
-                      src={project.image || "/placeholder.svg"}
+                      src={"/placeholder.svg"}
                       alt={project.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
@@ -414,42 +445,19 @@ export default function ClientPage() {
                   onClick={() => toggleExpanded(index)}
                 >
                   <div
-                    className={`w-16 h-16 ${item.bgColor} rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg ${item.title === "MySkill" || item.title === "Rumbeldirgantara" || item.title === "Rumah Kinclong" ? "bg-white border border-gray-300 overflow-hidden" : item.title === "Quondam" ? "overflow-hidden" : ""}`}
+                    className={`w-16 h-16 ${item.bgColor || "bg-gray-200"} rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg ${item.title === "MySkill" || item.title === "Rumbeldirgantara" || item.title === "Rumah Kinclong" ? "bg-white border border-gray-300 overflow-hidden" : item.title === "Quondam" ? "overflow-hidden" : ""}`}
                   >
-                    {item.title === "MySkill" ? (
+                    {item.logo ? (
                       <Image
-                        src="/download (2).png"
-                        alt="MySkill Logo"
-                        width={64}
-                        height={64}
-                        className="object-cover w-full h-full"
-                      />
-                    ) : item.title === "Rumbeldirgantara" ? (
-                      <Image
-                        src="/Cropped_Image.png"
-                        alt="Rumbeldirgantara Logo"
+                        src={item.logo}
+                        alt={`${item.title} Logo`}
                         width={64}
                         height={64}
                         className="object-contain"
-                      />
-                    ) : item.title === "Rumah Kinclong" ? (
-                      <Image
-                        src="/Tangkapan Layar 2025-06-13 pukul 16.43.20.png"
-                        alt="Rumah Kinclong Logo"
-                        width={64}
-                        height={64}
-                        className="object-cover -translate-x-[4px]"
-                      />
-                    ) : item.title === "Quondam" ? (
-                      <Image
-                        src="/quondam-logo.png"
-                        alt="Quondam Logo"
-                        width={250}
-                        height={250}
-                        className="object-cover"
+                        onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/placeholder.svg'; }}
                       />
                     ) : (
-                      <span className="text-white font-medium text-base">{item.logo}</span>
+                      <span className="text-gray-700 font-medium text-base">{item.title.split(' ').map(w => w[0]).join('')}</span>
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
