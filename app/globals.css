@@ -1,23 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-  html {
-    font-family: "Inter", system-ui, sans-serif;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply antialiased;
-  }
+html {
+  font-family: "Inter", system-ui, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+body {
+  @apply antialiased;
 }
+
+/* .text-balance removed to avoid unsupported property warnings */
 
 /* Custom animations */
 @keyframes fade-in {
@@ -89,7 +81,41 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* Dark mode styles */
-.dark {
-  color-scheme: dark;
+.delay-0 {
+  animation-delay: 0s;
 }
+
+.delay-50 {
+  animation-delay: 0.05s;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-800 {
+  animation-delay: 0.8s;
+}
+
+.delay-900 {
+  animation-delay: 0.9s;
+}
+
+/* Dark mode styles */
+

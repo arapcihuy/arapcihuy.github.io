@@ -10,6 +10,24 @@ export default function ClientPage() {
   const [expandedItems, setExpandedItems] = useState<number[]>([])
   const [activeTab, setActiveTab] = useState<"all" | "web" | "mobile" | "design">("all")
 
+  const getDelayClass = (delay: number | string) => {
+    const map: Record<number, string> = {
+      0: "delay-0",
+      0.05: "delay-50",
+      0.1: "delay-100",
+      0.2: "delay-200",
+      0.3: "delay-300",
+      0.4: "delay-400",
+      0.5: "delay-500",
+      0.8: "delay-800",
+      0.9: "delay-900",
+    }
+
+    const numeric = typeof delay === "string" ? Number(delay.replace("s", "")) : delay
+    const key = Number(numeric.toFixed(2))
+    return map[key] ?? ""
+  }
+
   useEffect(() => {
     setMounted(true)
     // Check for saved theme preference or default to light mode
@@ -43,7 +61,20 @@ export default function ClientPage() {
     return null
   }
 
-  const experienceData = [
+  type ExperienceItem = {
+    title: string
+    logo?: string
+    logoClass?: string
+    bgColor?: string
+    type: string
+    role: string
+    period: string
+    delay: string
+    description: string
+    link?: string
+  }
+
+  const experienceData: ExperienceItem[] = [
     {
       title: "MySkill",
       logo: "/download (2).png",
@@ -170,7 +201,21 @@ export default function ClientPage() {
   const filteredProjects =
     activeTab === "all" ? projectsData : projectsData.filter((project) => project.category === activeTab)
 
-  const educationData = [
+  type EducationItem = {
+    title: string
+    logo: string
+    logoClass?: string
+    period: string
+    role?: string
+    grade?: string
+    degree?: string
+    description: string
+    delay: string
+    type?: string
+    link?: string
+  }
+
+  const educationData: EducationItem[] = [
     {
       title: "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
       logo: "/channels4_profile.jpg",
@@ -181,6 +226,18 @@ export default function ClientPage() {
         "Participated in the Bangkit Academy program, focusing on Cloud Computing. Gained expertise in Google Cloud Platform services, including data processing, machine learning, and infrastructure management. Collaborated on projects and achieved a Grade A for performance.",
       delay: "0s",
       type: "Certification"
+    },
+    {
+      title: "Cybersecurity Essentials",
+      logo: "/Cisco_logo_blue_2016.svg.png",
+      logoClass: "w-full h-full p-3",
+      period: "July 2024",
+      role: "Cisco Networking Academy | Universitas Islam Indonesia",
+      description:
+        "Completed the Cisco Networking Academy Cybersecurity Essentials program, covering foundational security concepts and practices.",
+      delay: "0.05s",
+      type: "Certification",
+      link: "/certificates/cybersecurity-essentials.pdf"
     },
     {
       title: "Universitas Islam Indonesia",
@@ -201,6 +258,7 @@ export default function ClientPage() {
       <div className="fixed top-6 right-6 z-10">
         <button
           onClick={toggleTheme}
+          aria-label="Toggle theme"
           className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95"
         >
           <div className="relative w-5 h-5">
@@ -240,7 +298,7 @@ export default function ClientPage() {
         </div>
 
         {/* About Section */}
-        <section className="mb-16 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+        <section className="mb-16 animate-slide-up delay-200">
           <h2 className="text-2xl font-bold text-black dark:text-white mb-4 transition-colors duration-300">About</h2>
           <div className="text-gray-700 dark:text-gray-300 leading-relaxed space-y-3 transition-colors duration-300">
             <p>
@@ -262,14 +320,14 @@ export default function ClientPage() {
         </section>
 
         {/* Skills Section */}
-        <section className="mb-16 animate-slide-up" style={{ animationDelay: "0.3s" }}>
+        <section className="mb-16 animate-slide-up delay-300">
           <h2 className="text-2xl font-bold text-black dark:text-white mb-8 transition-colors duration-300">
             Skills
           </h2>
 
           <div className="space-y-6">
             {/* Languages */}
-            <div className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
+            <div className="animate-slide-up delay-100">
               <h3 className="text-lg font-medium text-black dark:text-white mb-3 transition-colors duration-300">
                 Languages
               </h3>
@@ -286,7 +344,7 @@ export default function ClientPage() {
             </div>
 
             {/* Frameworks */}
-            <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
+            <div className="animate-slide-up delay-200">
               <h3 className="text-lg font-medium text-black dark:text-white mb-3 transition-colors duration-300">
                 Frameworks & Libraries
               </h3>
@@ -303,7 +361,7 @@ export default function ClientPage() {
             </div>
 
             {/* Tools */}
-            <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
+            <div className="animate-slide-up delay-300">
               <h3 className="text-lg font-medium text-black dark:text-white mb-3 transition-colors duration-300">
                 Tools & Platforms
               </h3>
@@ -320,7 +378,7 @@ export default function ClientPage() {
             </div>
 
             {/* Databases */}
-            <div className="animate-slide-up" style={{ animationDelay: "0.4s" }}>
+            <div className="animate-slide-up delay-400">
               <h3 className="text-lg font-medium text-black dark:text-white mb-3 transition-colors duration-300">
                 Databases
               </h3>
@@ -339,7 +397,7 @@ export default function ClientPage() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="mb-16 animate-slide-up" style={{ animationDelay: "0.4s" }}>
+        <section id="projects" className="mb-16 animate-slide-up delay-400">
           <h2 className="text-2xl font-bold text-black dark:text-white mb-8 transition-colors duration-300">
             My Projects
           </h2>
@@ -366,8 +424,7 @@ export default function ClientPage() {
             {filteredProjects.map((project, index) => (
               <div
                 key={index}
-                className="group bg-white dark:bg-white rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 animate-slide-up transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-                style={{ animationDelay: `${0.1 * index}s` }}
+                className={`group bg-white dark:bg-white rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 animate-slide-up transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${getDelayClass(0.1 * index)}`}
               >
                 <div className="relative h-48 overflow-hidden">
                   {project.isVideo ? (
@@ -432,14 +489,14 @@ export default function ClientPage() {
         </section>
 
         {/* Work/Project Experience */}
-        <section className="mb-16 animate-slide-up" style={{ animationDelay: "0.5s" }}>
+        <section className="mb-16 animate-slide-up delay-500">
           <h2 className="text-2xl font-bold text-black dark:text-white mb-8 transition-colors duration-300">
             Work/Project Experience
           </h2>
 
           <div className="space-y-4">
             {experienceData.map((item, index) => (
-              <div key={index} className="animate-slide-up" style={{ animationDelay: item.delay }}>
+              <div key={index} className={`animate-slide-up ${getDelayClass(item.delay)}`}>
                 <div
                   className="flex items-start group hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-lg p-3 -m-3 transition-all duration-300 cursor-pointer"
                   onClick={() => toggleExpanded(index)}
@@ -514,7 +571,19 @@ export default function ClientPage() {
                   }`}
                 >
                   <div className="ml-14 pr-3 pb-2">
-                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.description}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                      {item.description}
+                      {item.link && (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-2 underline hover:text-gray-800 dark:hover:text-gray-200"
+                        >
+                          View PDF
+                        </a>
+                      )}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -523,14 +592,14 @@ export default function ClientPage() {
         </section>
 
         {/* Education */}
-        <section className="mb-16 animate-slide-up" style={{ animationDelay: "0.8s" }}>
+        <section className="mb-16 animate-slide-up delay-800">
           <h2 className="text-2xl font-bold text-black dark:text-white mb-8 transition-colors duration-300">
             Education
           </h2>
 
           <div className="space-y-4">
             {educationData.map((item, index) => (
-              <div key={index} className="animate-slide-up" style={{ animationDelay: item.delay }}>
+              <div key={index} className={`animate-slide-up ${getDelayClass(item.delay)}`}>
                 <div
                   className="flex items-start group hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-lg p-3 -m-3 transition-all duration-300 cursor-pointer"
                   onClick={() => toggleExpanded(index + 1000)} // Using large index to avoid conflict with experienceData
@@ -544,7 +613,7 @@ export default function ClientPage() {
                         alt={`${item.title} Logo`}
                         width={64}
                         height={64}
-                        className="object-contain"
+                        className={`object-contain ${item.logoClass ?? ""}`}
                       />
                     ) : (
                       <span className="text-gray-700 font-medium text-xl">{item.logo}</span>
@@ -626,7 +695,7 @@ export default function ClientPage() {
         </section>
 
         {/* Contact */}
-        <section className="mb-16 animate-slide-up text-center mx-auto max-w-3xl" style={{ animationDelay: "0.9s" }}>
+        <section className="mb-16 animate-slide-up text-center mx-auto max-w-3xl delay-900">
           <span className="inline-block px-3 py-1 text-xs font-medium text-white bg-black dark:bg-gray-800 dark:text-gray-300 rounded-full mb-4">
             Contact
           </span>
@@ -662,9 +731,8 @@ export default function ClientPage() {
                 <a
                   key={index}
                   href={item.href}
-                  className="p-2.5 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-110 active:scale-95 group relative"
+                  className={`p-2.5 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-110 active:scale-95 group relative ${getDelayClass(index * 0.1)}`}
                   aria-label={item.label}
-                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <item.icon className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" />
 
