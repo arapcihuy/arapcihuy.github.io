@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/png" href="/logo.png?v=3" />
         <link rel="shortcut icon" type="image/png" href="/logo.png?v=3" />

@@ -240,6 +240,16 @@ export default function ClientPage() {
       link: "/certificates/cybersecurity-essentials.pdf"
     },
     {
+      title: "Bootcamp Online Cyber Security Engineer",
+      logo: "/logo-merdeka-siber.png",
+      period: "October 6, 2025 - December 20, 2025",
+      role: "Certificate of Excellence",
+      description: "Completed the Bootcamp Online Cyber Security Engineer program by Merdeka Siber. Demonstrated proficiency in cyber security principles, ethical hacking, and defense mechanisms.",
+      delay: "0.15s",
+      type: "Certification",
+      link: "/certificates/MS_BOCSE_20_COE_006.pdf"
+    },
+    {
       title: "Universitas Islam Indonesia",
       logo: "/1279831.png",
       period: "2021 - Current",
@@ -686,7 +696,19 @@ export default function ClientPage() {
                   }`}
                 >
                   <div className="ml-14 pr-3 pb-2">
-                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.description}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                      {item.description}
+                      {item.link && (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-2 underline hover:text-gray-800 dark:hover:text-gray-200"
+                        >
+                          View PDF
+                        </a>
+                      )}
+                    </p>
                   </div>
                 </div>
               </div>
