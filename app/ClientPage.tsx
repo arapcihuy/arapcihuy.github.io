@@ -153,6 +153,17 @@ export default function ClientPage() {
       description:
         "Developed a comprehensive information portal and internal management system for PT Ontiyus Karya Mulia in collaboration with Universitas Gadjah Mada (UGM). Implemented features for company information display, internal workflows, and data management with a focus on usability and efficiency.",
     },
+    {
+      title: "CIMEDs Portal (Concept)",
+      logo: "/placeholder-logo.png",
+      bgColor: "bg-blue-600",
+      type: "Project",
+      role: "Fullstack Developer",
+      period: "2025-2026",
+      delay: "0.9s",
+      description:
+        "Developed a medical information system portal (CIMEDs) for health data integration in collaboration with Universitas Gadjah Mada (UGM). Built with TypeScript for the initial concept phase. The project will be migrated to WordPress for the production version to better serve medical facilities and healthcare providers.",
+    },
   ]
 
   const skillsData = {
@@ -216,6 +227,17 @@ export default function ClientPage() {
       tags: ["Next.js", "React", "TypeScript", "Management System", "UGM"],
       link: "https://pt-ontiyus-karya-mulia.vercel.app",
       github: "https://github.com/arapcihuy/pt-ontiyus-karya-mulia",
+      category: "web",
+    },
+    {
+      title: "CIMEDs Portal (Concept)",
+      description:
+        "Medical information system portal (CIMEDs) for health data integration developed in collaboration with Universitas Gadjah Mada (UGM). Initial concept built with TypeScript to demonstrate functionality. Currently being redesigned for migration to WordPress to better serve healthcare providers and medical facilities.",
+      video: "/videos/cimeds-portal.mp4",
+      isVideo: true,
+      tags: ["TypeScript", "Medical System", "WordPress", "UGM", "Healthcare"],
+      link: "#",
+      github: "https://github.com/arapcihuy/CIMEDs-portal",
       category: "web",
     },
   ]
