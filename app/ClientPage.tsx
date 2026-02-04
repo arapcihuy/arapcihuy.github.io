@@ -151,7 +151,7 @@ export default function ClientPage() {
       period: "2026",
       delay: "0.8s",
       description:
-        "Developed a comprehensive information portal and internal management system for PT Ontiyus Karya Mulia. Implemented features for company information display, internal workflows, and data management with a focus on usability and efficiency.",
+        "Developed a comprehensive information portal and internal management system for PT Ontiyus Karya Mulia in collaboration with Universitas Gadjah Mada (UGM). Implemented features for company information display, internal workflows, and data management with a focus on usability and efficiency.",
     },
   ]
 
@@ -210,10 +210,10 @@ export default function ClientPage() {
     {
       title: "PT Ontiyus Karya Mulia",
       description:
-        "Information portal and internal management system for PT Ontiyus Karya Mulia. Built with modern web technologies to provide efficient data management, company information display, and streamlined internal workflows.",
-      video: "/videos/pt-ontiyus.mp4", // Placeholder - ganti dengan file video nantinya
+        "Information portal and internal management system for PT Ontiyus Karya Mulia in collaboration with Universitas Gadjah Mada (UGM). Built with modern web technologies to provide efficient data management, company information display, and streamlined internal workflows.",
+      video: "/videos/pt-ontiyus.mp4",
       isVideo: true,
-      tags: ["Next.js", "React", "TypeScript", "Management System"],
+      tags: ["Next.js", "React", "TypeScript", "Management System", "UGM"],
       link: "https://pt-ontiyus-karya-mulia.vercel.app",
       github: "https://github.com/arapcihuy/pt-ontiyus-karya-mulia",
       category: "web",
