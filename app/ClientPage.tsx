@@ -144,7 +144,7 @@ export default function ClientPage() {
     },
     {
       title: "PT Ontiyus Karya Mulia",
-      logo: "/ontiyus-logo.svg",
+      logo: "/ontiyus-logo-full.png",
       bgColor: "bg-white",
       type: "Project",
       role: "Fullstack Developer",
