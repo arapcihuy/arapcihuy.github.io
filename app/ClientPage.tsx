@@ -142,6 +142,17 @@ export default function ClientPage() {
       description:
         "Developed and maintained the company profile website for PT. Cakra Bahana Sakti, covering landing page, product catalog, services, contact, and company information. Responsible for both frontend and backend implementation, ensuring a modern, responsive design and optimal SEO. Collaborated closely with stakeholders to deliver scalable and maintainable solutions.",
     },
+    {
+      title: "PT Ontiyus Karya Mulia",
+      logo: "/placeholder-logo.png",
+      bgColor: "bg-white",
+      type: "Project",
+      role: "Fullstack Developer",
+      period: "2026",
+      delay: "0.8s",
+      description:
+        "Developed a comprehensive information portal and internal management system for PT Ontiyus Karya Mulia. Implemented features for company information display, internal workflows, and data management with a focus on usability and efficiency.",
+    },
   ]
 
   const skillsData = {
@@ -194,6 +205,17 @@ export default function ClientPage() {
       tags: ["Next.js", "React", "Tailwind CSS", "Company Profile"],
       link: "https://www.cakrabahanasakti.com/",
       github: "#", // Ganti jika ada repo publik
+      category: "web",
+    },
+    {
+      title: "PT Ontiyus Karya Mulia",
+      description:
+        "Information portal and internal management system for PT Ontiyus Karya Mulia. Built with modern web technologies to provide efficient data management, company information display, and streamlined internal workflows.",
+      video: "/videos/pt-ontiyus.mp4", // Placeholder - ganti dengan file video nantinya
+      isVideo: true,
+      tags: ["Next.js", "React", "TypeScript", "Management System"],
+      link: "https://pt-ontiyus-karya-mulia.vercel.app",
+      github: "https://github.com/arapcihuy/pt-ontiyus-karya-mulia",
       category: "web",
     },
   ]
