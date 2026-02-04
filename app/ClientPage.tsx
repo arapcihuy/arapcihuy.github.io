@@ -338,15 +338,17 @@ export default function ClientPage() {
             </p>
           </div>
           <div className="flex-shrink-0">
-            <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-gray-100 dark:ring-gray-800 transition-all duration-300 hover:ring-gray-200 dark:hover:ring-gray-700 hover:scale-105">
-              <Image
-                src="/profile.jpg"
-                alt="Profile Photo"
-                width={96}
-                height={96}
-                className="w-full h-full object-cover transition-transform duration-300 scale-125 hover:scale-150"
-                priority
-              />
+            <div className="w-24 h-24 rounded-full overflow-visible ring-4 ring-gray-100 dark:ring-gray-800 transition-all duration-500 hover:ring-gray-200 dark:hover:ring-gray-700 relative group">
+              <div className="w-full h-full rounded-full overflow-hidden transition-all duration-500 group-hover:scale-150 group-hover:shadow-2xl group-hover:z-50 relative">
+                <Image
+                  src="/profile.jpg"
+                  alt="Profile Photo"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
