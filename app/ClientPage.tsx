@@ -156,10 +156,10 @@ export default function ClientPage() {
   ]
 
   const skillsData = {
-    languages: ["JavaScript", "TypeScript", "HTML", "CSS", "PHP"],
-    frameworks: ["React", "Next.js", "Vue.js", "Laravel", "Tailwind CSS", "Bootstrap"],
-    tools: ["Git", "Figma", "Adobe XD", "VS Code", "Webpack", "Vercel", "Netlify"],
-    databases: ["MySQL", "MongoDB", "Firebase"],
+    languages: ["JavaScript", "TypeScript", "HTML", "CSS", "PHP", "Dart", "C++"],
+    frameworks: ["React", "Next.js", "Angular", "Vue.js", "Flutter", "Ionic", "Capacitor", "Laravel", "Tailwind CSS", "Bootstrap", "Express.js"],
+    tools: ["Git", "GitHub", "Figma", "Adobe XD", "VS Code", "Vite", "Webpack", "Vercel", "Netlify", "Firebase", "Node.js", "ESP32", "Fastlane"],
+    databases: ["MySQL", "PostgreSQL", "MongoDB", "Firebase Firestore"],
   }
 
   const projectsData = [
