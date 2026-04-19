@@ -1,12 +1,72 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* View Transitions Theme Toggle Math */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+  clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
+  animation: circle-grow 0.7s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 2;
+  clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
+  animation: circle-shrink 0.7s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 1;
+  clip-path: none;
+  animation: none;
+}
+
+@keyframes circle-grow {
+  to {
+    clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
+  }
+}
+
+@keyframes circle-shrink {
+  to {
+    clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
+  }
+}
+
+:root {
+  --grain-opacity: 0.15;
+}
+
 html {
   font-family: "Inter", system-ui, sans-serif;
+  scroll-behavior: auto; /* Managed by Lenis */
 }
 
 body {
-  @apply antialiased;
+  @apply antialiased bg-white dark:bg-[#0a0a0a] text-black dark:text-[#eaeaea];
+}
+
+/* Custom noise overlay */
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: overlay;
 }
 
 /* .text-balance removed to avoid unsupported property warnings */
