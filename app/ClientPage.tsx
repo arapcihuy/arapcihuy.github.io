@@ -1,7 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
-import { Sun, Moon, Home } from "lucide-react"
-import { useLenis } from "lenis/react"
+import { Sun, Moon } from "lucide-react"
 import Hero from "@/components/sections/Hero"
 import About from "@/components/sections/About"
 import Projects from "@/components/sections/Projects"
@@ -28,7 +27,6 @@ export default function ClientPage() {
     }
   }, [])
 
-  const lenis = useLenis()
   const toggleTheme = (e: React.MouseEvent) => {
     // View Transition API for the circular mask effect
     if (!document.startViewTransition) {
