@@ -83,8 +83,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
       }}
     >
       <div 
-        className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-900 mb-6 transition-all duration-500 group-hover:shadow-[0_30px_60px_rgba(59,130,246,0.2)] dark:group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.05)] border border-gray-100 dark:border-white/5"
-        style={{ transform: "translateZ(30px)" }} // Pop the image out slightly
+        className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-900 mb-6 transition-all duration-500 group-hover:shadow-[0_30px_60px_rgba(59,130,246,0.2)] dark:group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.05)] border border-gray-100 dark:border-white/5 [transform:translateZ(30px)]"
       >
         {project.isVideo ? (
           <video
@@ -105,12 +104,12 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
         )}
         
         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4 backdrop-blur-[2px]">
-          <a href={project.github} className="p-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white hover:scale-110 transition-all"><Github size={20} /></a>
-          <a href={project.link} className="p-3 bg-white rounded-full text-black hover:scale-110 transition-all"><ExternalLink size={20} /></a>
+          <a href={project.github} title="View GitHub Repository" aria-label="View GitHub Repository" className="p-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white hover:scale-110 transition-all"><Github size={20} /></a>
+          <a href={project.link} title="View Live Project" aria-label="View Live Project" className="p-3 bg-white rounded-full text-black hover:scale-110 transition-all"><ExternalLink size={20} /></a>
         </div>
       </div>
 
-      <div style={{ transform: "translateZ(50px)" }}>
+      <div className="[transform:translateZ(50px)]">
         <h3 className="text-xl font-medium mb-1">{project.title}</h3>
         <p className="text-sm text-gray-500 dark:text-gray-400 font-light mb-4">{project.description}</p>
         <div className="flex flex-wrap gap-2">

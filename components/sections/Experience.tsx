@@ -58,7 +58,7 @@ export default function Experience() {
               <div key={idx} className="group border-b border-gray-100 dark:border-gray-900 pb-8 last:border-0 flex flex-col md:flex-row gap-6 mt-8">
                 <div className="flex-shrink-0 mt-1 hidden md:block">
                   {item.logo ? (
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center overflow-hidden border border-gray-200 dark:border-gray-800 transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] ${item.bgColor || "bg-white dark:bg-gray-900"}`}>
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center overflow-hidden border border-gray-200 dark:border-gray-800 transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] ${'bgColor' in item ? item.bgColor : "bg-white dark:bg-gray-900"}`}>
                       <Image
                         src={item.logo}
                         alt={`${item.title} logo`}
@@ -78,7 +78,7 @@ export default function Experience() {
                     <div className="flex items-center gap-4 mb-2 md:mb-0">
                        <div className="flex-shrink-0 md:hidden">
                         {item.logo ? (
-                          <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden border border-gray-200 dark:border-gray-800 ${item.bgColor || "bg-white dark:bg-gray-900"}`}>
+                          <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden border border-gray-200 dark:border-gray-800 ${'bgColor' in item ? item.bgColor : "bg-white dark:bg-gray-900"}`}>
                             <Image
                               src={item.logo}
                               alt={`${item.title} logo`}
@@ -105,6 +105,16 @@ export default function Experience() {
                   <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed max-w-xl text-sm md:text-base">
                     {item.description}
                   </p>
+                  {'link' in item && item.link && (
+                    <a 
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 mt-4 text-[10px] font-mono uppercase tracking-widest text-black dark:text-white border border-gray-200 dark:border-gray-800 px-4 py-2 rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
+                    >
+                      View Certificate
+                    </a>
+                  )}
                 </div>
               </div>
             ))}

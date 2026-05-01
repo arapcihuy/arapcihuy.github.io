@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import Spline from '@splinetool/react-spline'
 
 import TextReveal from "@/components/TextReveal"
 
@@ -17,7 +18,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 2.5, ease: "easeOut" }}
-          className="relative w-full h-full mix-blend-multiply dark:mix-blend-luminosity transition-all duration-1000"
+          className="relative w-full h-full dark:mix-blend-luminosity transition-all duration-1000 z-20"
           style={{ 
             maskImage: 'linear-gradient(to left, black 40%, transparent 85%), linear-gradient(to bottom, black 40%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to left, black 40%, transparent 85%), linear-gradient(to bottom, black 40%, transparent 100%)',
@@ -37,6 +38,11 @@ export default function Hero() {
 
       {/* Left gradient overlay for text readability on mobile */}
       <div className="absolute inset-0 z-10 bg-gradient-to-r from-white/90 via-white/50 to-transparent dark:from-[#0a0a0a]/90 dark:via-[#0a0a0a]/50 dark:to-transparent pointer-events-none" />
+
+      {/* 3D Interactive Spline Object */}
+      <div className="absolute top-0 right-0 w-full md:w-1/2 h-full z-10 opacity-70 cursor-grab active:cursor-grabbing">
+        <Spline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+      </div>
 
 
       {/* 3. Completely Neat Geometric Hero Animation (Rapi) */}

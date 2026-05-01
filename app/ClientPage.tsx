@@ -7,6 +7,7 @@ import Projects from "@/components/sections/Projects"
 import Experience from "@/components/sections/Experience"
 import Contact from "@/components/sections/Contact"
 import Marquee from "@/components/sections/Marquee"
+import ScrollVideoReveal from "@/components/sections/ScrollVideoReveal"
 import CustomCursor from "@/components/CustomCursor"
 import Preloader from "@/components/Preloader"
 import { motion, AnimatePresence } from "framer-motion"
@@ -63,7 +64,7 @@ export default function ClientPage() {
         )}
       </AnimatePresence>
 
-      <div style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.2s' }}>
+      <div className={`transition-opacity duration-200 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         {/* Floating Navigation */}
         <nav className="fixed top-8 right-8 z-50 flex items-center gap-4">
           <button
@@ -98,6 +99,11 @@ export default function ClientPage() {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
           <Hero />
+        </div>
+        
+        <ScrollVideoReveal />
+
+        <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
           <About />
           <Projects />
           <Experience />

@@ -49,7 +49,7 @@
 
 html {
   font-family: "Inter", system-ui, sans-serif;
-  scroll-behavior: auto; /* Managed by Lenis */
+  /* scroll-behavior: auto; Managed by Lenis */
 }
 
 body {

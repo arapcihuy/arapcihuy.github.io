@@ -48,8 +48,7 @@ export default function Marquee() {
           <span 
             key={idx} 
             onMouseEnter={() => setHoveredText(item)}
-            className="text-transparent hover:text-black dark:hover:text-white transition-colors duration-300"
-            style={{ WebkitTextStroke: "1px rgba(156, 163, 175, 0.4)" }}
+            className="text-transparent hover:text-black dark:hover:text-white transition-colors duration-300 [-webkit-text-stroke:1px_rgba(156,163,175,0.4)]"
           >
             {item}
           </span>
