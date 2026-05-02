@@ -2,47 +2,36 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import Spline from '@splinetool/react-spline'
 
 import TextReveal from "@/components/TextReveal"
 
 export default function Hero() {
   return (
-    <section className="min-h-[90vh] flex flex-col justify-center px-6 py-20 relative overflow-hidden">
+    <section className="min-h-[90vh] flex flex-col justify-center px-6 py-20 relative overflow-hidden bg-white dark:bg-[#0a0a0a]">
       {/* 1. 3D Cyber Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0000001a_1px,transparent_1px),linear-gradient(to_bottom,#0000001a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] z-0" />
       
-      {/* 2. Cinematic Half-Body Background Portrait */}
-      <div className="absolute bottom-0 right-0 w-[85%] md:w-3/5 h-[75%] md:h-[95%] z-0 pointer-events-none">
+      {/* 2. Profile Photo - Full Width, positioned right */}
+      <div className="absolute inset-0 z-[5] pointer-events-none">
         <motion.div
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2.5, ease: "easeOut" }}
-          className="relative w-full h-full transition-all duration-1000 z-20"
-          style={{ 
-            maskImage: 'linear-gradient(to left, black 40%, transparent 85%), linear-gradient(to bottom, black 40%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to left, black 40%, transparent 85%), linear-gradient(to bottom, black 40%, transparent 100%)',
-            maskComposite: 'intersect',
-            WebkitMaskComposite: 'source-in',
-          }}
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="relative w-full h-full"
         >
           <Image
             src="/profile.png"
-            alt="Profile Background"
+            alt="Profile"
             fill
-            className="object-cover object-center md:object-top opacity-100"
+            className="object-cover object-right-top"
             priority
           />
         </motion.div>
       </div>
 
-      {/* Left gradient overlay for text readability on mobile */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-white/90 via-white/50 to-transparent dark:from-[#0a0a0a]/90 dark:via-[#0a0a0a]/50 dark:to-transparent pointer-events-none" />
+      {/* Left gradient overlay - smooth fade ke foto */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-white from-30% via-white/60 via-50% to-transparent dark:from-[#0a0a0a] dark:from-30% dark:via-[#0a0a0a]/60 dark:via-50% dark:to-transparent pointer-events-none" />
 
-      {/* 3D Interactive Spline Object */}
-      <div className="absolute top-0 right-0 w-full md:w-1/2 h-full z-10 opacity-70 cursor-grab active:cursor-grabbing">
-        <Spline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
-      </div>
 
 
       {/* 3. Completely Neat Geometric Hero Animation (Rapi) */}
