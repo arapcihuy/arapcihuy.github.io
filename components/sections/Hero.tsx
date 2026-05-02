@@ -18,7 +18,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 2.5, ease: "easeOut" }}
-          className="relative w-full h-full dark:mix-blend-luminosity transition-all duration-1000 z-20"
+          className="relative w-full h-full transition-all duration-1000 z-20"
           style={{ 
             maskImage: 'linear-gradient(to left, black 40%, transparent 85%), linear-gradient(to bottom, black 40%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to left, black 40%, transparent 85%), linear-gradient(to bottom, black 40%, transparent 100%)',
@@ -30,7 +30,7 @@ export default function Hero() {
             src="/profile.png"
             alt="Profile Background"
             fill
-            className="object-cover object-center md:object-top opacity-80"
+            className="object-cover object-center md:object-top opacity-100"
             priority
           />
         </motion.div>
