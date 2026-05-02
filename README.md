@@ -2,7 +2,7 @@
 
 This is the second iteration of my personal portfolio website, designed to showcase my projects, skills, and professional experience as a Fullstack Developer and UI/UX Designer. Built with modern web technologies for optimal performance and user experience.
 
-![Portfolio Preview](public/profile.jpg)
+![Portfolio Preview](public/profile.png)
 
 ## 🚀 Technologies
 
@@ -45,9 +45,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 👤 Author
 
-**Rasyid Ahmad**
+### Rasyid Ahmad
+
 - GitHub: [@arapcihuy](https://github.com/arapcihuy)
 - LinkedIn: [Rasyid Ahmad](https://www.linkedin.com/in/rasyid-ahmad-840b8b250/)
 
 ---
-*Created with Next.js and ❤️*
+Created with Next.js and ❤️
