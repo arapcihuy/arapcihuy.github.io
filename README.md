@@ -2,7 +2,7 @@
 
 This is the second iteration of my personal portfolio website, designed to showcase my projects, skills, and professional experience as a Fullstack Developer and UI/UX Designer. Built with modern web technologies for optimal performance and user experience.
 
-![Portfolio Preview](public/profile.png)
+![Portfolio Preview](public/profile.jpg)
 
 ## 🚀 Technologies
 

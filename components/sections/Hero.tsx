@@ -27,7 +27,7 @@ export default function Hero() {
           }}
         >
           <Image
-            src="/profile.png"
+            src="/profile.jpg"
             alt="Profile Background"
             fill
             className="object-cover object-center md:object-top opacity-80"
