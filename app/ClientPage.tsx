@@ -29,28 +29,19 @@ export default function ClientPage() {
     }
   }, [])
 
-  const toggleTheme = (e: React.MouseEvent) => {
-    const startViewTransition = (document as any).startViewTransition
-    if (!startViewTransition) {
-      const newTheme = !isDark
-      setIsDark(newTheme)
-      document.documentElement.classList.toggle("dark")
-      localStorage.setItem("theme", newTheme ? "dark" : "light")
-      return
-    }
-
-    const x = e.clientX
-    const y = e.clientY
+  const toggleTheme = () => {
+    const newTheme = !isDark
+    setIsDark(newTheme)
     
-    document.documentElement.style.setProperty('--x', `${x}px`)
-    document.documentElement.style.setProperty('--y', `${y}px`)
-
-    startViewTransition(() => {
-      const newTheme = !isDark
-      setIsDark(newTheme)
-      document.documentElement.classList.toggle("dark")
-      localStorage.setItem("theme", newTheme ? "dark" : "light")
-    })
+    if (newTheme) {
+      // Switch to dark mode
+      document.documentElement.classList.add("dark")
+      localStorage.setItem("theme", "dark")
+    } else {
+      // Switch to light mode
+      document.documentElement.classList.remove("dark")
+      localStorage.setItem("theme", "light")
+    }
   }
 
   if (!mounted) return null
@@ -72,31 +63,13 @@ export default function ClientPage() {
             onClick={toggleTheme}
             className="p-3 rounded-full border border-gray-100 dark:border-white/10 bg-white/50 dark:bg-black/50 backdrop-blur-xl transition-all hover:scale-110 active:scale-95"
           >
-            <AnimatePresence mode="wait">
-              {isDark ? (
-                <motion.div
-                  key="moon"
-                  initial={{ opacity: 0, rotate: -90 }}
-                  animate={{ opacity: 1, rotate: 0 }}
-                  exit={{ opacity: 0, rotate: 90 }}
-                >
-                  <Moon size={20} className="text-white" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="sun"
-                  initial={{ opacity: 0, rotate: -90 }}
-                  animate={{ opacity: 1, rotate: 0 }}
-                  exit={{ opacity: 0, rotate: 90 }}
-                >
-                  <Sun size={20} className="text-black" />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {isDark ? (
+              <Moon size={20} className="text-white" />
+            ) : (
+              <Sun size={20} className="text-black" />
+            )}
           </button>
         </nav>
-
-        {/* Removed Progress Bar to prevent sync issues */}
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
           <Hero />
