@@ -39,14 +39,14 @@ export default function Hero() {
         <motion.div
           className="absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-blue-500/10 dark:bg-blue-600/20 rounded-full blur-[100px]"
           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 8, repeat: Infinity, ease: [0.25, 1, 0.5, 1] }}
         />
         
         <motion.svg
           viewBox="0 0 100 100"
           className="absolute w-[600px] h-[600px] md:w-[900px] md:h-[900px] text-gray-200 dark:text-gray-800 opacity-20"
           animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
+          transition={{ repeat: Infinity, duration: 60, ease: [0.16, 1, 0.3, 1] }}
         >
           <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.2" strokeDasharray="2 4" />
           <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="0.1" />
@@ -56,7 +56,7 @@ export default function Hero() {
           viewBox="0 0 100 100"
           className="absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] text-blue-500/10 dark:text-blue-500/5"
           animate={{ rotate: -360 }}
-          transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+          transition={{ repeat: Infinity, duration: 40, ease: [0.16, 1, 0.3, 1] }}
         >
           <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="10 5" />
           <circle cx="10" cy="50" r="1.5" fill="currentColor" />
@@ -67,7 +67,7 @@ export default function Hero() {
       <div className="relative z-20 w-full max-w-6xl mx-auto flex flex-col items-center md:items-start text-center md:text-left">
         <div className="flex flex-col gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4">
-            <h1 className="text-6xl md:text-8xl font-bold leading-tight tracking-tighter text-black dark:text-white">
+            <h1 className="text-7xl md:text-9xl lg:text-[180px] font-bold leading-[0.9] tracking-[-0.05em] text-black dark:text-white">
               <TextReveal text="Hi, I'm Rasyid" />
             </h1>
           </div>
@@ -75,8 +75,8 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="text-xl md:text-3xl text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed font-light drop-shadow-sm"
+            transition={{ delay: 1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-lg md:text-2xl text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed font-light drop-shadow-sm"
           >
             Frontend Developer — UI/UX Designer. Focusing on building high-performance, 
             visually stunning web experiences with precision and care.
