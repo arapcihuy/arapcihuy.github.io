@@ -1,4 +1,5 @@
 "use client"
+
 import { useState, useEffect } from "react"
 import { Sun, Moon } from "lucide-react"
 import Hero from "@/components/sections/Hero"
@@ -29,8 +30,8 @@ export default function ClientPage() {
   }, [])
 
   const toggleTheme = (e: React.MouseEvent) => {
-    // View Transition API for the circular mask effect
-    if (!document.startViewTransition) {
+    const startViewTransition = (document as any).startViewTransition
+    if (!startViewTransition) {
       const newTheme = !isDark
       setIsDark(newTheme)
       document.documentElement.classList.toggle("dark")
@@ -44,7 +45,7 @@ export default function ClientPage() {
     document.documentElement.style.setProperty('--x', `${x}px`)
     document.documentElement.style.setProperty('--y', `${y}px`)
 
-    document.startViewTransition(() => {
+    startViewTransition(() => {
       const newTheme = !isDark
       setIsDark(newTheme)
       document.documentElement.classList.toggle("dark")

@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 import TextReveal from "@/components/TextReveal"
+import ParticleSignature from "@/components/ParticleSignature"
 
 export default function Hero() {
   return (
@@ -63,6 +64,9 @@ export default function Hero() {
           <circle cx="90" cy="50" r="1.5" fill="currentColor" />
         </motion.svg>
       </div>
+
+      {/* 4. Signature Moment: Interactive Particle Field */}
+      <ParticleSignature />
 
       <div className="relative z-20 w-full max-w-6xl mx-auto flex flex-col items-center md:items-start text-center md:text-left">
         <div className="flex flex-col gap-6">
